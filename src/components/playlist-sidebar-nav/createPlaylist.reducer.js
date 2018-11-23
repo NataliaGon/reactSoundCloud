@@ -1,4 +1,4 @@
-import {ADD_PLAYLIST} from './createPlaylist.constants';
+import { ADD_PLAYLIST } from './createPlaylist.constants';
 const playlists=[];
 const initialState = {
   playlists

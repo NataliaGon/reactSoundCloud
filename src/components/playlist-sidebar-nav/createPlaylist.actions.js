@@ -1,5 +1,5 @@
 
-import  ADD_PLAYLIST  from './createPlaylist.constants';
+import { ADD_PLAYLIST } from './createPlaylist.constants';
 
 export default function addPlaylist(playlist) {
   return {

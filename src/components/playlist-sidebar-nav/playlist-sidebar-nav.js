@@ -1,7 +1,9 @@
 
-import React, { Component } from 'react';
+import React,  {Component } from 'react';
+import uuid from "uuid";
+import  connect  from "react-redux";
+import  addPlaylist  from './createPlaylist.actions';
 
-import { connect } from 'react-redux';
 import CreatePlayList from '../createPlaylist/createPlaylist';
 import './playlist-sidebar-nav.css';
 
@@ -20,10 +22,16 @@ class PlaylistSideBarNav extends Component {
   }  
       
     render() {  
-         
+      const id = uuid();
+      const newPlaylist = {
+          id,
+          title: 'Untitled',
+          isFocusMode: true,
+          songs: []
+        }
         return (
             <div className="site-bar-container">
-                <CreatePlayList/>
+                <CreatePlayList onClick={this.props.addPlaylist(newPlaylist)}/>
                 <hr />
                 <ul>                
                 { this.createPlayListsTitle() } 
@@ -32,19 +40,19 @@ class PlaylistSideBarNav extends Component {
         );
     }
 }
-function mapStateToProps(stateData) {
-    return {
-   
-    }
-  }
-  
-  function mapDispatchToProps(dispatch) {
-    return {
-     
-      
-   
-    }
-  }
-  
-  
-  export default connect(mapStateToProps, mapDispatchToProps)(PlaylistSideBarNav);
+function mapStateToProps(state) {
+  return {
+   state
+  };
+}
+
+
+const mapDispatchToProps = {
+  addPlaylist
+};
+
+
+export default connect(
+  mapStateToProps,
+mapDispatchToProps
+)(PlaylistSideBarNav);
