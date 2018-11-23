@@ -28,3 +28,6 @@
     font-size: 1.38rem;
     font-weight: 400;
   }
+  .playlists-lists{
+    list-style-type:none;
+  }

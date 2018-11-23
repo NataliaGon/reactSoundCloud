@@ -1,5 +1,6 @@
 import "./playlist.css";
 import PlaylistSideBarNav from "../playlist-sidebar-nav/playlist-sidebar-nav";
+
 import Playlist from "../each-playlist/each-playlist";
 import React, { Component } from "react";
 import { connect } from "react-redux";
@@ -9,10 +10,11 @@ class Playlists extends Component {
     if (playlists.length>0) {
       return (
         <ul className="playlists-lists">
-          {playlists.map((playlist, i) => {
+          {playlists.map((playlist) => {
             return (
-              <li key={playlist.id}>
-                <Playlist playlist={playlist} index={i} />
+              <li>
+              <Playlist playlists={playlists} />
+              
               </li>
             );
           })}
@@ -32,8 +34,8 @@ class Playlists extends Component {
       <div className="playlists-comp-main playlists-comp">
      
         <PlaylistSideBarNav playlists={playlists} />
-        <div className="right-playlists">
-         
+        
+        <div className="right-playlists">   
           {this.renderPlaylist(playlists)}
         </div>
       </div>

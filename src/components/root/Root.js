@@ -5,7 +5,7 @@ import {
   Redirect
 } from 'react-router-dom';
 import Explore from '../explore/explore.js';
-import Playlist from '../playlist/playlist.js';
+import Playlist from '../playlist-container/playlist.js';
 import FooterPlayer from '../footer-player/footer-player.js';
 
 import React from 'react';
