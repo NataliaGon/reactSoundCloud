@@ -9,7 +9,7 @@ function playlistReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_PLAYLIST:
       return {
-        playlists:state.playlists.push(action.playlist)
+        playlists:[...state.playlists, action.playlist]
       };
     default:
       return state;
