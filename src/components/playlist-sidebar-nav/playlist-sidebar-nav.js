@@ -1,8 +1,8 @@
 
 import React,  {Component } from 'react';
-import uuid from "uuid";
-import  connect  from "react-redux";
-import  addPlaylist  from './createPlaylist.actions';
+import {uuid} from "uuid";
+import  {connect}  from "react-redux";
+import  {addPlaylist}  from './createPlaylist.actions';
 
 import CreatePlayList from '../createPlaylist/createPlaylist';
 import './playlist-sidebar-nav.css';
@@ -11,7 +11,9 @@ import './playlist-sidebar-nav.css';
 class PlaylistSideBarNav extends Component {
     
   createPlayListsTitle() {
+    console.log(this.props.playlists);
     if (this.props.playlists.length > 0) {
+
       return this.props.playlists.map((playlist) => {
           return <li key={ playlist.id }>
             { playlist.title }
