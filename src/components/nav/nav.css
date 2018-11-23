@@ -1,0 +1,105 @@
+.nav-conteiner {
+    background-color: #2196f3;
+    height: 64px;
+    width: 100%;
+    display: flex;
+  }
+  .nav-conteiner a{
+    text-decoration: none;
+  }
+  .nav-conteiner ul {
+    display: inline-flex;
+    margin-block-start: 0;
+    height: 100%;
+  }
+  .nav-conteiner ul li {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .nav-conteiner li a {
+    text-decoration: none;
+    color: white;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+  }
+  #site-name{
+    margin-left: 20px;
+  }
+@media (min-width: 768px) {
+  .nav-conteiner ul a:hover,
+  .selected {
+    background: #1e88e5;
+  }
+  .fa-soundcloud {
+    font-size: 44px;
+    color: white;
+  }
+  #site-name {
+    color: white;
+  }
+  .fa-caret-down {
+    display: none;
+  }
+  .client-indif {
+    margin-right: 10px;
+    margin-top: 22px;
+  }
+}
+@media (max-width: 767px) {
+  .nav-conteiner ul li {
+    display: inline;
+  }
+  .nav-conteiner ul li:hover {
+    background: #1e88e5;
+  }
+  .nav-conteiner li a {
+    text-decoration: none;
+    color: white;
+  }
+  .fa-soundcloud {
+    font-size: 44px;
+    color: white;
+    float: left;
+  }
+  .icon-soundcloud {
+    font-size: 44px;
+    color: white;
+    float: left;
+  }
+  #site-name {
+    display: none;
+  }
+  .nav-conteiner ul {
+    margin-right: 30px;
+  }
+  .fa-caret-down {
+    display: block;
+    font-size: 20px;
+    color: white;
+  }
+  .client-indif {
+    display: none;
+  }
+  .nav-conteiner-mob {
+    height: 128px;
+    clear: both;
+    position: relative;
+  }
+  .nav-conteiner-mob ul {
+    position: absolute;
+    height: 50%;
+    top: 0px;
+    right: 0px;
+  }
+  .client-indif-mob {
+    position: absolute;
+    display: block;
+    color: white;
+    bottom: 0px;
+    right: 10px;
+    height: 50%;
+  }
+}

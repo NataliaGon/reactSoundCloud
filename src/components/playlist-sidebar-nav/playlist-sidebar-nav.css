@@ -1,0 +1,50 @@
+
+.site-bar-container{
+    width: 200px;
+    height: 100%;    
+    border-right: 1px solid #D8D8D8 ;   
+    float: left;
+}
+.site-bar-container     hr{    
+    margin-top: 24px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    margin-right: 10px;        
+    border:none;
+    height: 1px;
+    background-color: #D8D8D8;        
+}
+.site-bar-container   ul{
+    margin-left: 10px;
+}
+.site-bar-container     ul li{
+    line-height: 2;
+}
+.site-bar-container  a{
+    font-family: Roboto-Light;
+    text-decoration: none;
+    color: black;        
+}
+.add-new-playlist{
+    margin-top: 25px;
+    margin-left: 12px;
+    margin-right: 12px;
+    background: #2196F3;
+    color: white;
+    padding: 10px 40px; 
+    border:0;
+}
+ .playlist-input{
+     border: none;
+     text-align: center;
+     margin-top: 10px;
+     
+ }
+ input::-webkit-input-placeholder { 
+    color: black;
+    font-size: 1vw;
+}
+ input::-moz-placeholder {
+    color: black;
+    font-size: 1vw;
+}

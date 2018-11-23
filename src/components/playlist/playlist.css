@@ -1,0 +1,30 @@
+
+.playlists-comp-main{
+    width: 100%;
+  }
+  
+  .playlists-comp-main{
+    position: fixed;
+    left: 0;
+    top: 64px;
+    height: 89%;
+    overflow-x: scroll;
+  }
+  
+  .right-playlists{
+    margin-left: 200px;
+    display: block;
+    padding-bottom: 60px;
+  }
+  
+  .playlist-comp .songs{
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  .right-playlists .no-playlists{
+    display: inline-block;
+    margin: 206px;
+    font-size: 1.38rem;
+    font-weight: 400;
+  }
