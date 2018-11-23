@@ -1,10 +1,11 @@
 import { ADD_PLAYLIST } from './createPlaylist.constants';
-const playlists=[];
+
 const initialState = {
-  playlists
+  playlists:[]
 };
 
 function playlistReducer(state = initialState, action) {
+  console.log(state);
   switch (action.type) {
     case ADD_PLAYLIST:
       return {
