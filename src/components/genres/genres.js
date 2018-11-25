@@ -16,7 +16,7 @@ export default class Genres extends React.Component {
                     <li><NavLink to="/Explore/reggaeton">reggaeton</NavLink  ></li>
                     <li><NavLink to="/Explore/dubstep">dubstep</NavLink  ></li>
                 </ul>   
-                <i className="fa fa-bars" aria-hidden="true" onClick={this.openMenu.bind(this)}/>
+                {/* <i className="fa fa-bars" aria-hidden="true" onClick={this.openMenu.bind(this)}/> */}
                
                 </div>
                 

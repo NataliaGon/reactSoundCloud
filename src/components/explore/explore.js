@@ -1,8 +1,8 @@
 import './explore.css';
 import Genres from '../genres/genres.js';
 import SongsList from '../songs-list/songs-list.js';
-import Nav from '../nav/nav.js';
-import Loader from '../loader/loader.js';
+// import Nav from '../nav/nav.js';
+// import Loader from '../loader/loader.js';
 
 import React from 'react';
 

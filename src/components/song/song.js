@@ -1,7 +1,10 @@
 import './song.css';
 import classNames from 'classnames/bind';
 import { connect } from 'react-redux';
+// import {moveSong} from '';
 import React from 'react';
+
+import renderPlayListsTitle from '../sharedFunctions';
 
 class Song extends React.Component {
     
@@ -21,28 +24,32 @@ class Song extends React.Component {
         }
 }    
     render() {
+        // console.log(this.props.playlists);
         var dropdownClass = classNames({
             'dropdown': true,
             'dropdown-open': this.state.heartPressed   
        });
 
        const data=this.props.data;
-    //    let styles ='"background-image:url('{data.img}');"'
-      console.log(data)
+ 
         return (
             <div>
                 <div className="song-container" >
                     <div className="song-clip" onClick={() => this.props.selectSong(data)} style={{backgroundImage:"url("+data.artwork_url+")"}} >
                     </div>
                     <div className="song-title">{data.title}</div>
-                    <i className="fa fa-clock-o" aria-hidden="true"/>
-                    <i className="fa fa-heart" aria-hidden="true" onClick={this.openDropDown.bind(this)}/>
+                    <i className="fa fa-clock-o"/>
+                    <i className="fa fa-heart" onClick={this.openDropDown.bind(this)}/>
                     
                 </div>
 
                 <div className={dropdownClass}>
                     <h3>Add to playlist</h3>
-                    <a>Create playlist</a>
+                    
+                    <ul className="playlistTitles">{
+                        renderPlayListsTitle(this.props.playlists)
+                        }</ul>
+                        <a href="#">Create playlist</a>
                     <hr/>
                 </div>
             </div>
@@ -52,11 +59,13 @@ class Song extends React.Component {
 
 function mapStateToProps(store){
     return{
-        currentSong: store.currentSong
+        currentSong: store.currentSong,
+        playlists:store.playlists.playlists
     }
 }
 
 function mapDispatchToProps(dispatch) {
+    // moveSong
     return {
         selectSong(data) {
             dispatch({

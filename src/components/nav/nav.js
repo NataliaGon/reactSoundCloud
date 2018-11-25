@@ -32,12 +32,12 @@ export default class Nav extends React.Component {
             <div className={navClass}>
 
                 <NavLink to="/">
-                    <i className="fa fa-soundcloud" aria-hidden="true" />
-                    <h6 id="site-name">SoundCloud</h6>
+                    <i className="fa fa-soundcloud"  />
+                    {/* <h6 id="site-name">SoundCloud</h6> */}
                 </NavLink>
 
                 
-                <i className="fa fa-caret-down" aria-hidden="true" onClick={this.openSerch.bind(this)} />
+                {/* <i className="fa fa-caret-down" onClick={this.openSerch.bind(this)} /> */}
                 <ul>
                     <li><NavLink to="/Explore" activeClassName="selected" >Explore</NavLink></li>
                     <li><NavLink to="/Playlist" activeClassName="selected" >Playlist</NavLink></li>

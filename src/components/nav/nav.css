@@ -1,40 +1,43 @@
 .nav-conteiner {
-    background-color: #2196f3;
-    height: 64px;
-    width: 100%;
-    display: flex;
-  }
-  .nav-conteiner a{
-    text-decoration: none;
-  }
-  .nav-conteiner ul {
-    display: inline-flex;
-    margin-block-start: 0;
-    height: 100%;
-  }
-  .nav-conteiner ul li {
-    display: flex;
-    align-items: center;
-    height: 100%;
-  }
-  .nav-conteiner li a {
-    text-decoration: none;
-    color: white;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 10px;
-  }
-  #site-name{
-    margin-left: 20px;
-  }
+  background-color: #2196f3;
+  height: 64px;
+  width: 100%;
+  display: flex;
+}
+.nav-conteiner a {
+  text-decoration: none;
+}
+.nav-conteiner ul {
+  display: inline-flex;
+  margin-block-start: 0;
+  height: 100%;
+}
+.nav-conteiner ul li {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.nav-conteiner li a {
+  text-decoration: none;
+  color: white;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+#site-name {
+  margin-left: 20px;
+}
+.fa.fa-soundcloud {
+  font-size: 5rem;
+}
 @media (min-width: 768px) {
   .nav-conteiner ul a:hover,
   .selected {
     background: #1e88e5;
   }
   .fa-soundcloud {
-    font-size: 44px;
+    /* font-size: 44px; */
     color: white;
   }
   #site-name {
@@ -60,15 +63,11 @@
     color: white;
   }
   .fa-soundcloud {
-    font-size: 44px;
+    /* font-size: 44px; */
     color: white;
     float: left;
   }
-  .icon-soundcloud {
-    font-size: 44px;
-    color: white;
-    float: left;
-  }
+
   #site-name {
     display: none;
   }
