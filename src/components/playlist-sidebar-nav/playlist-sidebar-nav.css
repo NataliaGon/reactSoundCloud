@@ -16,6 +16,7 @@
 }
 .site-bar-container   ul{
     margin-left: 10px;
+    list-style-type:none;
 }
 .site-bar-container     ul li{
     line-height: 2;
@@ -34,12 +35,7 @@
     padding: 10px 40px; 
     border:0;
 }
- .playlist-input{
-     border: none;
-     text-align: center;
-     margin-top: 10px;
-     
- }
+
  input::-webkit-input-placeholder { 
     color: black;
     font-size: 1vw;

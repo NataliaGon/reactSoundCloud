@@ -5,8 +5,13 @@
   display: block;
   width: 100%;
   margin-top: 25px;
+  position: relative;
 }
-.playlist-title{
+.playlist-input{
+  text-align: center;
+  margin-top: 10px;
+}
+.playlist-title-container{
   display: flex;
   justify-content: space-between;
   width: 80%;
@@ -26,10 +31,19 @@
 .delete-playlist-btn{
   color: rgb(201, 1, 1);
   cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 20%;
 }
 .playlist-title input{
   height: 20%;
 } 
 .container-for-songs-in-playlist{
   flex-wrap: wrap;
+}
+.hidden{
+display:none;
+}
+.ply-input-title{
+  display:block
 }
