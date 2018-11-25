@@ -14,6 +14,7 @@
 .playlist-title-container{
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   width: 80%;
   height: 64px;
   border: 1px solid gray;
@@ -32,7 +33,7 @@
   color: rgb(201, 1, 1);
   cursor: pointer;
   position: absolute;
-  top: 10px;
+  top:0;
   right: 20%;
 }
 .playlist-title input{

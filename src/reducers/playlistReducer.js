@@ -38,8 +38,11 @@ function playlistReducer(state = initialState, action) {
     
         for(let i of allPlaylists){
             if (i.id === action.id){
+                if(action.title){
                 i.title=action.title;
-              
+            }else{
+                i.title='Untitled'; 
+            }
             }
         }
         return{

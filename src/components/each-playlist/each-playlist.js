@@ -43,6 +43,7 @@ class Playlist extends Component {
           <input
             className={inputClass}
             type="text"
+            defaultValue={title}
             onClick={() => this.props.toogleSpanInput(id)}
             ref={input=>{this.textInput=input}}
             onBlur={() => {
