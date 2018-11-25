@@ -1,9 +1,10 @@
 import "./playlist.css";
 import PlaylistSideBarNav from "../playlist-sidebar-nav/playlist-sidebar-nav";
-
+import uuid from "uuid";
 import Playlist from "../each-playlist/each-playlist";
 import React, { Component } from "react";
 import { connect } from "react-redux";
+
 
 class Playlists extends Component {
   renderPlaylist(playlists) {
@@ -11,11 +12,8 @@ class Playlists extends Component {
       return (
         <ul className="playlists-lists">
           {playlists.map((playlist) => {
-            return (
-              <li>
-              <Playlist playlists={playlists} />
-              
-              </li>
+            return (    
+              <Playlist playlist={playlist} id={playlist.id} key={uuid()} />
             );
           })}
         </ul>

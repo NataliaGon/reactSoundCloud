@@ -8,27 +8,25 @@ import "./playlist-sidebar-nav.css";
 
 class PlaylistSideBarNav extends Component {
   renderPlayListsTitle() {
-    console.log(this.props.playlists);
+   
     if (this.props.playlists.length > 0) {
       return this.props.playlists.map(playlist => {
-        return <li key={playlist.id}>{playlist.title}</li>;
+        return <li key={uuid()}>{playlist.title}</li>;
       });
     }
   }
 
   render() {
-    const id = uuid();
+
     const newPlaylist = {
-      id,
+      id:uuid(),
       title: "Untitled",
       isFocusMode: true,
       songs: []
     };
     return (
       <div
-        className="site-bar-container"
-        
-      >
+        className="site-bar-container">
         <button className="add-new-playlist" onClick={() => this.props.addPlaylist(newPlaylist)}>Add new playlist</button>
         <hr />
         <ul>{this.renderPlayListsTitle()}</ul>
@@ -38,7 +36,7 @@ class PlaylistSideBarNav extends Component {
 }
 function mapStateToProps(state) {
   return {
-    state
+   state
   };
 }
 
