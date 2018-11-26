@@ -4,7 +4,7 @@ import React from 'react';
 
 class FooterPlayer extends React.Component {
         render() { 
-            const song = this.props.currentSong
+            const song = this.props.currentSong.currentSong;
 
             if (!song){
                 return <div/>;

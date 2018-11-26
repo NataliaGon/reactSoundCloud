@@ -1,5 +1,7 @@
 import { ADD_PLAYLIST } from '../components/playlist-sidebar-nav/createPlaylist.constants';
 import { DELETE_PLAYLIST, TOGGLE_SPAN_INPUT,CHANGE_TITLE } from '../components/each-playlist/each-playlist.constants';
+import { ADD_REMOVE_SONG_FROM_PLAYLIST} from "../components/song/song.constants";
+
 
 const initialState = {
   playlists:[]
@@ -49,7 +51,25 @@ function playlistReducer(state = initialState, action) {
           playlists:[...allPlaylists]
         };
 
-      
+        case ADD_REMOVE_SONG_FROM_PLAYLIST:
+        for(let playlist of allPlaylists){
+          if (playlist.id === action.playlistId){
+            if (action.addSong) {
+              //  Checkbox checked, need to add song
+              playlist.songs.push(action.song);
+          }else {
+            //Remove song from playlist
+            const index = playlist.songs.findIndex((element) => (element.id === action.song.id));
+  
+            playlist.songs.splice(index, 1);
+           
+  
+          }
+        }
+      }
+       return{
+        playlists:[...allPlaylists]
+        }
     default:
       return state;
   }

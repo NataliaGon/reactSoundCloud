@@ -21,9 +21,7 @@ export default class SongsList extends React.Component {
                     return <Song key={song.id} data={song}/>;
                  })
              }
-
-              
-            
+       
           </div>
         );
     }
