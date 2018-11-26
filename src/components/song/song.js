@@ -23,7 +23,7 @@ class Song extends React.Component {
   }
   checkboxChangeHandler(ev, playlistId) {
     const chechbox = ev.target;
-    console.log(this.props.data,playlistId,chechbox.checked );
+    
     this.props.addOrRemoveSongFromPlaylist(this.props.data, playlistId, chechbox.checked)
   }
   isSongInAnyPlaylist() {

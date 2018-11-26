@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./each-playlist.css";
 import { deletePlaylist, toogleSpanInput,changeTitle } from "./each-playlist.actions";
+import Song from '../song/song.js';
+
 
 class Playlist extends Component {
     constructor() {
@@ -21,7 +23,23 @@ class Playlist extends Component {
       focus() {
         this.textInput.focus();
       }
-    
+
+    renderSongs(){
+     
+      const songs = this.props.playlist.songs;
+      if (songs.length>0) {
+        return (
+          <div className="songs-container">
+            {songs.map((song) => {
+              return (    
+                <Song key={song.id} data={song} />
+              );
+            })}
+          </div>
+        );
+     
+    }
+  }
   render() {
 
     const { id, title, isNameHidden, isInputeHidden } = this.props.playlist;
@@ -30,7 +48,7 @@ class Playlist extends Component {
       ? "playlist-input hidden"
       : "playlist-input";
 
-      
+    
     return (
       <div className="one-playlist-object">
         <div className="playlist-title-container">
@@ -64,8 +82,9 @@ class Playlist extends Component {
           Delete
         </span>
 
-        <span className="playlist-nav-span" />
-        <div className="container-for-songs-in-playlist" />
+        {/* <span className="playlist-nav-span" /> */}
+        {/* <div className="container-for-songs-in-playlist" /> */}
+        {this.renderSongs()}
       </div>
     );
   }
