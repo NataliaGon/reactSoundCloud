@@ -28,7 +28,7 @@ export default class Nav extends React.Component {
 
     return (
       <div className={navClass}>
-        <div class="flex-wrapper">
+        <div className="flex-wrapper">
           <NavLink to="/">
             <i className="fa fa-soundcloud" />
             {/* <h6 id="site-name">SoundCloud</h6> */}
@@ -48,7 +48,7 @@ export default class Nav extends React.Component {
             </li>
           </ul>
         </div>
-        <div class="flex-wrapper">
+        <div className="flex-wrapper">
           <span className={clientIndClass}>Logout</span>
           <Search isVissible={this.state.isPressed} />
         </div>

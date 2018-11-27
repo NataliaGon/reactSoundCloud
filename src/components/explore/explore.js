@@ -41,7 +41,6 @@ export default class Explore extends React.Component {
     
 
     getSong(genre) {
-        console.log(genre);
         const url = `https://api.soundcloud.com/tracks?client_id=jHIO7kur07kyRKwzce6Ol52j1My6zV0L&limit=15&offset=0&tags=${genre}`;
         const xhr = new XMLHttpRequest();
         xhr.open('GET', url);

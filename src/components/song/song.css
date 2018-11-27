@@ -24,9 +24,9 @@
     color: #D8D8D8;    
 }
 .fa-heart:hover{
-    color: #9B9B9B;
+    color: rgb(156, 220, 238);
 }
-.fa-heart:active{
+.blue{
     color: #2196F3;
 }
 .dropdown{

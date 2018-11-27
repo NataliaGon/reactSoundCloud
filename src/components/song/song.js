@@ -11,7 +11,8 @@ class Song extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      heartPressed: false
+      heartPressed: false,
+      heartColor:false
     };
   }
   openDropDown() {
@@ -25,18 +26,23 @@ class Song extends React.Component {
     const chechbox = ev.target;
     
     this.props.addOrRemoveSongFromPlaylist(this.props.data, playlistId, chechbox.checked)
+    if(this.isSongInAnyPlaylist()){
+      this.setState({ heartColor:true });
+    }else{
+      this.setState({ heartColor:false});
+    }
   }
   isSongInAnyPlaylist() {
-
     for (const playlist of this.props.playlists) {
       for (const song of playlist.songs) {
-        if (song.id === this.props.song.id) {
-          return true;
+        if (song.id === this.props.data.id) {
+          return true;   
         }
       }
     }
     return false;
   }
+
   isSongInPlaylist(playlist) {
 
     for (const song of playlist.songs) {
@@ -66,11 +72,14 @@ class Song extends React.Component {
   }
 
   render() {
-    var dropdownClass = classNames({
-      dropdown: true,
+   const dropdownClass = classNames({
+      "dropdown": true,
       "dropdown-open": this.state.heartPressed
     });
-
+    const heartClass = classNames({
+      "fa fa-heart": true,
+      "blue": this.state.heartColor
+    });
     const data = this.props.data;
 
     return (
@@ -83,7 +92,7 @@ class Song extends React.Component {
           />
           <div className="song-title">{data.title}</div>
           <i className="fa fa-clock-o" />
-          <i className="fa fa-heart" onClick={this.openDropDown.bind(this)} />
+          <i className={heartClass} onClick={this.openDropDown.bind(this)} />
         </div>
 
         <div className={dropdownClass}>
@@ -101,10 +110,10 @@ class Song extends React.Component {
 function mapStateToProps(store) {
   return {
     currentSong: store.currentSong,
-    playlists: store.playlists.playlists
+    playlists: store.playlists.playlists,
+    store:store
   };
 }
-
 
 const mapDispatchToProps = {
     selectSong,

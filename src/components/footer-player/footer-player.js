@@ -13,10 +13,9 @@ class FooterPlayer extends React.Component {
             const streamUrl =`https://api.soundcloud.com/tracks/${song.id}/stream`;
             const songUrl= ` ${streamUrl}?client_id=jHIO7kur07kyRKwzce6Ol52j1My6zV0L`;
 
-            console.log(this.props.currentSong);
 
         return (
-            <div>
+            <div className="audio-wrapper">
                 <audio src={songUrl}
                        controls
                        autoPlay/>            
