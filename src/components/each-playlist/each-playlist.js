@@ -10,7 +10,7 @@ class Playlist extends Component {
         super();
         this.focus = this.focus.bind(this);
       }
-    componentDidUpdate() {
+      componentDidUpdate() {
         if (this.textInput) {
           this.focus()
         }

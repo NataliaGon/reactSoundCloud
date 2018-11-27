@@ -10,13 +10,13 @@ class Playlists extends Component {
   renderPlaylist(playlists) {
     if (playlists.length>0) {
       return (
-        <ul className="playlists-lists">
+        <div className="playlists-lists">
           {playlists.map((playlist) => {
             return (    
               <Playlist playlist={playlist} id={playlist.id} key={uuid()} />
             );
           })}
-        </ul>
+        </div>
       );
     } else {
       return (

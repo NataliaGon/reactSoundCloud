@@ -1,8 +1,8 @@
 .search{
-    float: right;
+    /* float: right;
     margin: 22px 30px 22px auto;
-    height: 19px; 
-    position: relative;  
+    height: 19px; */
+    position: relative;   
  }
  .search  .input-search{
     background: #1E88E5;        
