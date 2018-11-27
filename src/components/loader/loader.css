@@ -1,3 +1,9 @@
 .fa-spinner{
-    color: #2196F3;  
+    color: #2196F3; 
+}
+.loader-wrapper{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    margin-top: 200px;
 }
