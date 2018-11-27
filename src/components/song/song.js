@@ -70,6 +70,15 @@ class Song extends React.Component {
       });
     }
   }
+  songTime() {
+    const ms = this.props.data.duration;
+    let min = Math.floor(ms / 60000);
+    let sec = ((ms % 60000) / 1000).toFixed(0);
+    if(sec.length<=1){
+      sec = sec +'0';
+    }
+    return min + ':' + sec
+  }
 
   render() {
    const dropdownClass = classNames({
@@ -91,7 +100,8 @@ class Song extends React.Component {
             style={{ backgroundImage: "url(" + data.artwork_url + ")" }}
           />
           <div className="song-title">{data.title}</div>
-          <i className="fa fa-clock-o" />
+          <i className="fa fa-clock-o" /> 
+          <p className="song-time">{this.songTime()}</p>
           <i className={heartClass} onClick={this.openDropDown.bind(this)} />
         </div>
 
