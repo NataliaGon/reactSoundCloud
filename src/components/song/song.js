@@ -1,4 +1,4 @@
-import React from "react";
+import React,{Component} from "react";
 import classNames from "classnames/bind";
 import { connect } from "react-redux";
 import uuid from "uuid";
@@ -6,25 +6,18 @@ import "./song.css";
 import {selectSong,addOrRemoveSongFromPlaylist} from "./song.actions";
 
 
-
-class Song extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+class Song extends Component {
+  state = {
       heartPressed: false,
       heartColor:false
-    };
-  }
-  openDropDown() {
-    if (this.state.heartPressed) {
-      this.setState({ heartPressed: false });
-    } else {
-      this.setState({ heartPressed: true });
-    }
+  };
+  
+  openDropDown=() =>{
+      this.setState({ heartPressed: !this.state.heartPressed });
   }
   checkboxChangeHandler(ev, playlistId) {
     const chechbox = ev.target;
-    
+
     this.props.addOrRemoveSongFromPlaylist(this.props.data, playlistId, chechbox.checked)
     if(this.isSongInAnyPlaylist()){
       this.setState({ heartColor:true });
@@ -32,33 +25,23 @@ class Song extends React.Component {
       this.setState({ heartColor:false});
     }
   }
-  isSongInAnyPlaylist() {
-    for (const playlist of this.props.playlists) {
-      for (const song of playlist.songs) {
-        if (song.id === this.props.data.id) {
-          return true;   
-        }
-      }
-    }
-    return false;
-  }
-
+  
   isSongInPlaylist(playlist) {
-
-    for (const song of playlist.songs) {
-      if (song.id === this.props.data.id) {
-        return true
-      }
-    }
-
-    return false
+    return !!playlist.songs.some(song=>(song.id === this.props.data.id));
+   }
+   
+  isSongInAnyPlaylist() {
+    let check;
+    this.props.playlists.forEach((playlist)=>{
+     check=check||!!this.isSongInPlaylist(playlist);
+    })
+    return check;
   }
 
   renderPlayListsTitle() {
     if (this.props.playlists.length > 0) {
-      return this.props.playlists.map(playlist => {
-        return (
-          <label key={uuid()} id={playlist.id}>
+      return this.props.playlists.map(playlist => 
+         (<label key={uuid()} id={playlist.id}>
             <input
               type="checkbox"
               checked={ this.isSongInPlaylist(playlist)}
@@ -66,8 +49,8 @@ class Song extends React.Component {
             />
             {playlist.title}
           </label>
-        );
-      });
+        )
+      );
     }
   }
   songTime() {
@@ -92,7 +75,7 @@ class Song extends React.Component {
     const data = this.props.data;
 
     return (
-      <div id={uuid()}>
+      <li className="song-list">
         <div className="song-container">
           <div
             className="song-clip"
@@ -102,7 +85,7 @@ class Song extends React.Component {
           <div className="song-title">{data.title}</div>
           <i className="fa fa-clock-o" /> 
           <p className="song-time">{this.songTime()}</p>
-          <i className={heartClass} onClick={this.openDropDown.bind(this)} />
+          <i className={heartClass} onClick={this.openDropDown} />
         </div>
 
         <div className={dropdownClass}>
@@ -112,7 +95,7 @@ class Song extends React.Component {
           <span>Create playlist</span>
           <hr />
         </div>
-      </div>
+      </li>
     );
   }
 }
@@ -125,12 +108,8 @@ function mapStateToProps(store) {
   };
 }
 
-const mapDispatchToProps = {
-    selectSong,
-    addOrRemoveSongFromPlaylist
-  };
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  {selectSong,
+    addOrRemoveSongFromPlaylist}
 )(Song);

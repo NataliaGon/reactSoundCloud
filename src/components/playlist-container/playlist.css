@@ -8,6 +8,7 @@
     left: 0;
     top: 64px;
     height: 89%;
+    overflow-y: scroll;
   }
   
   .right-playlists{
@@ -15,6 +16,7 @@
     display: block;
     padding-bottom: 60px;
     text-align: center;
+    border-left: solid 1px #D8D8D8;
   }
   
   .playlist-comp .songs{

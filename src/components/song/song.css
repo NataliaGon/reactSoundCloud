@@ -1,3 +1,6 @@
+.song-list{
+    list-style-type: none;
+}
 .song-container{
     width: 200px;
     height: 120px;

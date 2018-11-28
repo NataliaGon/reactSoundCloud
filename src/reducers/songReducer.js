@@ -4,14 +4,11 @@ const initialState = {
   currentSong:[]
 };
 
-export default function songReducer(state = initialState , action) {
-  switch (action.type) {
-
-  case TO_PLAY_SONG:
-   return{
-    currentSong:action.data   
-   }
-  default:
-  return state;
-}
+export default function songReducer(state = initialState , {type, data}) {
+  switch (type) {
+    case TO_PLAY_SONG:
+      return{ currentSong:data }
+    default:
+      return state;
+  }
 }

@@ -1,7 +1,7 @@
-import './genres.css';
-import { NavLink } from 'react-router-dom';
-
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import './genres.css';
+
 
 export default class Genres extends React.Component {
     render() {
@@ -16,15 +16,7 @@ export default class Genres extends React.Component {
                     <li><NavLink to="/Explore/reggaeton">reggaeton</NavLink  ></li>
                     <li><NavLink to="/Explore/dubstep">dubstep</NavLink  ></li>
                 </ul>   
-                {/* <i className="fa fa-bars" aria-hidden="true" onClick={this.openMenu.bind(this)}/> */}
-               
-                </div>
-                
-                       
+                </div>           
         );
-        
-    }
-    openMenu(){
-        console.log('123');
     }
 }

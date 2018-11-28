@@ -9,11 +9,8 @@ class FooterPlayer extends React.Component {
             if (!song){
                 return <div/>;
             } 
-
             const streamUrl =`https://api.soundcloud.com/tracks/${song.id}/stream`;
             const songUrl= ` ${streamUrl}?client_id=jHIO7kur07kyRKwzce6Ol52j1My6zV0L`;
-
-
         return (
             <div className="audio-wrapper">
                 <audio src={songUrl}

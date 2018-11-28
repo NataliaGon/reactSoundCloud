@@ -1,13 +1,9 @@
+import React,{Component} from 'react';
 import './search.css';
 
-import React from 'react';
-// import isPressed from './nav.js'
 
 
-export default class Search extends React.Component {
-//    if (this.prop.isVissible===true){
-
-//    }
+export default class Search extends Component {
     render() {
         return (           
             <div className = "search"> 

@@ -1,60 +1,62 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./each-playlist.css";
-import { deletePlaylist, toogleSpanInput,changeTitle } from "./each-playlist.actions";
-import Song from '../song/song.js';
-
+import {
+  deletePlaylist,
+  changeTitle
+} from "./each-playlist.actions";
+import Song from "../song/song.js";
 
 class Playlist extends Component {
-    constructor() {
-        super();
-        this.focus = this.focus.bind(this);
-      }
-      componentDidUpdate() {
-        if (this.textInput) {
-          this.focus()
-        }
-      }
-      componentDidMount() {
-        if (this.textInput) {
-          this.focus()
-        }
-      }
-      focus() {
-        this.textInput.focus();
-      }
 
-    renderSongs(){
-     
-      const songs = this.props.playlist.songs;
-      if (songs.length>0) {
-        return (
-          <div className="songs-container">
-            {songs.map((song) => {
-              return (    
-                <Song key={song.id} data={song} />
-              );
-            })}
-          </div>
-        );
-     
+state={
+  isNameHidden: false,
+  isInputeHidden: true
+}
+
+  componentDidUpdate() {
+    if (this.textInput) {
+      this.focus();
     }
   }
+  componentDidMount() {
+    if (this.textInput) {
+      this.focus();
+    }
+  }
+  focus = () => {
+    this.textInput.focus();
+  };
+
+  renderSongs() {
+    const songs = this.props.playlist.songs;
+    if (songs.length) {
+      return (
+        <ul className="songs-container">
+          {songs.map(song => (
+            <Song key={song.id} data={song} />
+          ))}
+        </ul>
+      );
+    }
+  }
+  toogleSpanInput(){
+      this.setState({isNameHidden:!this.state.isNameHidden});
+      this.setState({isInputeHidden:!this.state.isInputeHidden});
+  }
+
   render() {
-
-    const { id, title, isNameHidden, isInputeHidden } = this.props.playlist;
-    const spanClass = isNameHidden ? "playlist-title hidden" : "playlist-title";
-    const inputClass = isInputeHidden
-      ? "playlist-input hidden"
-      : "playlist-input";
-
+    const { id, title} = this.props.playlist;
     
+    const spanClass = "playlist-title"+ (this.state.isNameHidden ? " hidden" : "");
+    const inputClass = "playlist-input" +(this.state.isInputeHidden ? " hidden": "");
+
     return (
       <div className="one-playlist-object">
         <div className="playlist-title-container">
           <span
             className={spanClass}
-            onClick={() => this.props.toogleSpanInput(id)}
+            onClick={() => this.toogleSpanInput()}
           >
             {title}
           </span>
@@ -62,44 +64,39 @@ class Playlist extends Component {
             className={inputClass}
             type="text"
             defaultValue={title}
-            onClick={() => this.props.toogleSpanInput(id)}
-            ref={input=>{this.textInput=input}}
+            onClick={() => this.toogleSpanInput()}
+            ref={input => {
+              this.textInput = input;
+            }}
             onBlur={() => {
-                this.props.changeTitle(this.textInput.value,id);
-                this.props.toogleSpanInput(id);
-              }}
-              onKeyDown={(e) => {
-                if (e.keyCode === 13) {
-                  this.textInput.blur()
-                }
-              }}
-          ></input>
+              this.props.changeTitle(this.textInput.value,id);
+              this.toogleSpanInput();
+            }}
+            onKeyDown={e => {
+              if (e.keyCode === 13) {
+                this.textInput.blur();
+              }
+            }}
+          />
         </div>
-        <span
+        <button
           className="delete-playlist-btn"
           onClick={() => this.props.deletePlaylist(id)}
         >
           Delete
-        </span>
-
-        {/* <span className="playlist-nav-span" /> */}
-        {/* <div className="container-for-songs-in-playlist" /> */}
+        </button>
         {this.renderSongs()}
       </div>
     );
   }
-} 
+}
 function mapStateToProps(state) {
   return {
     state
   };
 }
-const mapDispatchToProps = {
-  deletePlaylist,
-  toogleSpanInput,
-  changeTitle
-};
+
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  {deletePlaylist,changeTitle}
 )(Playlist);

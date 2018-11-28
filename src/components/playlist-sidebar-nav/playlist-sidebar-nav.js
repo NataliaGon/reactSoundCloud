@@ -2,26 +2,19 @@ import React, { Component } from "react";
 import uuid from "uuid";
 import { connect } from "react-redux";
 import { addPlaylist } from "./createPlaylist.actions";
-
 import "./playlist-sidebar-nav.css";
 
 class PlaylistSideBarNav extends Component {
   renderPlayListsTitle() {
-    if (this.props.playlists.length > 0) {
-      return this.props.playlists.map(playlist => {
-        return <li key={uuid()}>{playlist.title}</li>;
-      });
-    }
-  }
+    if (this.props.playlists.length) {
+      return this.props.playlists.map(playlist => <li key={uuid()}>{playlist.title}</li>)}}
 
   render() {
     const newPlaylist = {
       id: uuid(),
       title: "Untitled",
       isFocusMode: true,
-      songs: [],
-      isNameHidden: false,
-      isInputeHidden: true
+      songs: []
     };
     return (
       <div className="site-bar-container">
@@ -43,11 +36,7 @@ function mapStateToProps(state) {
   };
 }
 
-const mapDispatchToProps = {
-  addPlaylist
-};
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  {addPlaylist}
 )(PlaylistSideBarNav);
